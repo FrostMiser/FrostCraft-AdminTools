@@ -16,7 +16,7 @@ Commands
 * /seeinv [Player] - View a players inventory
 * /seeinvender [Player] - View a players ender inventory
 * /tpl [Player] - Teleport to a player
-* /gm [Player,Optional] - Change gamemode of self or player (if specified).
+* /gm [Optional Player] - Change gamemode of self or player (if specified).
 * /time [Night|Day] - Set time to night or day
 * /togglephysics - Turn server physics on or off
 * /addpoint [Name] - Adds a waypoint point that you can teleport back to later
