@@ -11,7 +11,8 @@ Commands
 * /tempban [Player] [Days] - Issues a temporary ban to a player for [Days] days
 * /mute [Player] - Mutes a player.
 * /unmute [Player] - Unmutes a player
-* /vanish - Hides your name from tab and 
+* /vanish - Hides your name from tab and makes you invisible to other players.
+* /vanishfrom [Player] - Hides your name from tab and makes you invisible only to a specific player.
 * /seeinv [Player] - View a players inventory
 * /seeinvender [Player] - View a players ender inventory
 * /tpl [Player] - Teleport to a player
