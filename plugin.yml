@@ -1,0 +1,13 @@
+name: FrostCraft-AdminTools
+main: com.frostcraft.admintools.Main
+version: 1.0
+commands:
+  fcadmin:
+    description: FrostCraft AdminTools command
+    usage: Use /fcadmin
+    permission: fcadmin.admin
+    permission-message: You do not have permission to use this command.
+permissions:
+    fcadmin.admin:
+        description: FrostCraft AdminTools permission.
+        default: op
