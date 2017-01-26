@@ -1,4 +1,5 @@
 package com.frostcraft.admintools;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -53,6 +54,30 @@ public class Main extends JavaPlugin {
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin addpoint [Name]" + ChatColor.GREEN + " - Add an admin waypoint.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin listpoints" + ChatColor.GREEN + " - List admin waypoints.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin point [Name]" + ChatColor.GREEN + " - Teleport to a waypoint.");
+				}
+				else {
+					if (args[0].equalsIgnoreCase("kick")) {
+						if (args.length < 3) {
+							Bukkit.getServer().broadcastMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Invalid command format. Use /fcadmin kick [P] [Msg]");
+							
+						}
+						else {
+							try {
+								Player kickPlayer = Bukkit.getServer().getPlayer(args[1]);
+								
+								String message = ChatColor.RED + "Kicked: " + args[2];
+								for (int i=3;i<args.length;i++)
+								{
+									message = message + " " + args[i]; 
+								}
+								kickPlayer.kickPlayer(message);
+								Bukkit.getServer().broadcastMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + kickPlayer.getName() + ChatColor.GREEN + " has been kicked for: " + ChatColor.ITALIC + message);			
+							}
+							catch (Exception e) {
+								p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Player " + args[1] + " not found, or no player specified." + e.toString());
+							}							
+						}
+					}
 				}
 			}
 		}
