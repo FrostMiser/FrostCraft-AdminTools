@@ -65,13 +65,13 @@ public class Main extends JavaPlugin {
 							try {
 								Player kickPlayer = Bukkit.getServer().getPlayer(args[1]);
 								
-								String message = ChatColor.RED + "Kicked: " + args[2];
+								String message = ChatColor.RED + args[2];
 								for (int i=3;i<args.length;i++)
 								{
 									message = message + " " + args[i]; 
 								}
-								kickPlayer.kickPlayer(message);
-								Bukkit.getServer().broadcastMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + kickPlayer.getName() + ChatColor.GREEN + " has been kicked for: " + ChatColor.ITALIC + message);			
+								kickPlayer.kickPlayer("Kicked: " + message);
+								Bukkit.getServer().broadcastMessage(ChatColor.AQUA + "[FrostCraft Admin] " + ChatColor.GREEN + kickPlayer.getName() + ChatColor.GREEN + " has been kicked for: " + ChatColor.ITALIC + message);			
 							}
 							catch (Exception e) {
 								p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Player " + args[1] + " not found, or no player specified." + e.toString());
