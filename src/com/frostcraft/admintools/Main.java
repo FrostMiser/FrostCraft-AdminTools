@@ -1,4 +1,8 @@
 package com.frostcraft.admintools;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -7,8 +11,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+
+
 public class Main extends JavaPlugin {
-	Boolean enablePhysics = true;
+	public static boolean enablePhysics = true;
+	public static List<UUID> vanishList = new ArrayList<UUID>(); //List of vanished players
+	
+
 	
 	public void onEnable() {
 		getServer().getPluginManager().registerEvents(new BlockListener(),this);
@@ -171,7 +180,31 @@ public class Main extends JavaPlugin {
 							p.teleport(tplPlayer);
 							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "You have been teleported to " + tplPlayer.getName());
 						}
-					}					
+					}
+					else if (args[0].equalsIgnoreCase("vanish")) 	{
+						boolean isVanished = false;
+						
+						if (vanishList.contains(p.getUniqueId())) {	isVanished = true; }
+								
+						if (isVanished)
+						{
+							for (Player pList: this.getServer().getOnlinePlayers()) {
+								pList.showPlayer(p);
+							}
+							vanishList.remove(p.getUniqueId());
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "You are no longer vanished.");
+
+						}
+						else
+						{
+							for (Player pList: this.getServer().getOnlinePlayers()) {
+								pList.hidePlayer(p);
+							}
+							vanishList.add(p.getUniqueId());
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "You have vanished!");
+						}
+					}		
+					
 				}
 			}
 		}
