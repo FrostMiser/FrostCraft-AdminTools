@@ -98,7 +98,7 @@ public class Main extends JavaPlugin {
 								Bukkit.getServer().broadcastMessage(ChatColor.AQUA + "[FrostCraft Admin] " + ChatColor.GREEN + banPlayer.getName() + ChatColor.GREEN + " has been banned for: " + ChatColor.ITALIC + message);			
 							}
 							catch (Exception e) {
-								p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Player " + args[1] + " not found, or no player specified." + e.toString());
+								p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Player " + args[1] + " not found, or no player specified.");
 							}							
 						}
 					}
