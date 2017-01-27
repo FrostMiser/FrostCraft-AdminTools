@@ -112,6 +112,20 @@ public class Main extends JavaPlugin {
 							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "GameMode changed to Creative.");
 						}
 					}
+					else if (args[0].equalsIgnoreCase("seeinv")) {
+						Player invPlayer = null;
+						try {
+							invPlayer = Bukkit.getServer().getPlayer(args[1]);
+						}						
+						catch (Exception e) {
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Player " + args[1] + " not found, or no player specified.");
+						}
+						
+						if (invPlayer != null) {
+							p.openInventory(invPlayer.getInventory());
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Showing player inventory for " + args[1] + ".");
+						}
+					}
 				}
 			}
 		}
