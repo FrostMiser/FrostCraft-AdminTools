@@ -156,6 +156,9 @@ public class Main extends JavaPlugin {
 						}
 					}
 					else if (args[0].equalsIgnoreCase("tpl")) {
+						if (args.length < 2) {
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "No player specified.");							
+						}
 						Player tplPlayer = null;
 						try {
 							tplPlayer = Bukkit.getServer().getPlayer(args[1]);
