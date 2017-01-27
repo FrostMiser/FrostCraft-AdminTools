@@ -78,6 +78,29 @@ public class Main extends JavaPlugin {
 							}							
 						}
 					}
+					else if (args[0].equalsIgnoreCase("ban")) {
+						if (args.length < 3) {
+							Bukkit.getServer().broadcastMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Invalid command format. Use /fcadmin ban [P] [Msg]");
+							
+						}
+						else {
+							try {
+								Player banPlayer = Bukkit.getServer().getPlayer(args[1]);
+								
+								String message = ChatColor.RED + args[2];
+								for (int i=3;i<args.length;i++)
+								{
+									message = message + " " + args[i]; 
+								}
+								banPlayer.setBanned(true);
+								banPlayer.kickPlayer("Banned: " + message);
+								Bukkit.getServer().broadcastMessage(ChatColor.AQUA + "[FrostCraft Admin] " + ChatColor.GREEN + banPlayer.getName() + ChatColor.GREEN + " has been banned for: " + ChatColor.ITALIC + message);			
+							}
+							catch (Exception e) {
+								p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Player " + args[1] + " not found, or no player specified." + e.toString());
+							}							
+						}
+					}					
 				}
 			}
 		}
