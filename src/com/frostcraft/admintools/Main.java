@@ -165,6 +165,20 @@ public class Main extends JavaPlugin {
 							enablePhysics = true;
 						}
 					}
+					else if (args[0].equalsIgnoreCase("tpl")) {
+						Player tplPlayer = null;
+						try {
+							tplPlayer = Bukkit.getServer().getPlayer(args[1]);
+						}						
+						catch (Exception e) {
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Player " + args[1] + " not found, or no player specified.");
+						}
+						
+						if (tplPlayer != null) {
+							p.teleport(tplPlayer);
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "You have been teleported to " + tplPlayer.getName());
+						}
+					}					
 				}
 			}
 		}
