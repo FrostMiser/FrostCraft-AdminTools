@@ -13,23 +13,13 @@ public class Main extends JavaPlugin {
 	Boolean enablePhysics = true;
 	
 	public void onEnable() {
+		getServer().getPluginManager().registerEvents(new BlockListener(),this);
 		this.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] Plugin enabled.");
 	}
 	
 	public void onDisable() {
 		this.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] Plugin disabled.");
 	}
-	
-	/********************************************************************************
-	 * 			BLOCK PHYSICS EVENT
-	 ********************************************************************************/	
-  	@EventHandler
-	public void onBlockPhysics(BlockPhysicsEvent event)
-  	{
-  		if (!enablePhysics) {
-  				event.setCancelled(true);
-  		}
-  	}	
 
 	
 	@Override
