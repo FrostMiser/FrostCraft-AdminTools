@@ -1,6 +1,7 @@
 package com.frostcraft.admintools;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -100,7 +101,17 @@ public class Main extends JavaPlugin {
 								p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Player " + args[1] + " not found, or no player specified." + e.toString());
 							}							
 						}
-					}					
+					}
+					else if (args[0].equalsIgnoreCase("gm")) {
+						if (p.getGameMode().equals(GameMode.CREATIVE)) {
+							p.setGameMode(GameMode.SURVIVAL);
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "GameMode changed to Survival.");
+						}
+						else {
+							p.setGameMode(GameMode.CREATIVE);
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "GameMode changed to Creative.");
+						}
+					}
 				}
 			}
 		}
