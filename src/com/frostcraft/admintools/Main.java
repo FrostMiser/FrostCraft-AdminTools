@@ -141,6 +141,20 @@ public class Main extends JavaPlugin {
 							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Showing player inventory for " + args[1] + ".");
 						}
 					}
+					else if (args[0].equalsIgnoreCase("seeinvender")) {
+						Player invPlayer = null;
+						try {
+							invPlayer = Bukkit.getServer().getPlayer(args[1]);
+						}						
+						catch (Exception e) {
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Player " + args[1] + " not found, or no player specified.");
+						}
+						
+						if (invPlayer != null) {
+							p.openInventory(invPlayer.getEnderChest());
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Showing player ender inventory for " + args[1] + ".");
+						}
+					}					
 					else if (args[0].equalsIgnoreCase("togglephysics")) {
 						if (enablePhysics) {
 							enablePhysics = false;
