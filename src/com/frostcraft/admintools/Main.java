@@ -5,9 +5,13 @@ import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.block.BlockPhysicsEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
+	Boolean enablePhysics = true;
+	
 	public void onEnable() {
 		this.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] Plugin enabled.");
 	}
@@ -16,7 +20,17 @@ public class Main extends JavaPlugin {
 		this.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] Plugin disabled.");
 	}
 	
-	
+	/********************************************************************************
+	 * 			BLOCK PHYSICS EVENT
+	 ********************************************************************************/	
+  	@EventHandler
+	public void onBlockPhysics(BlockPhysicsEvent event)
+  	{
+  		if (!enablePhysics) {
+  				event.setCancelled(true);
+  		}
+  	}	
+
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) 
@@ -124,6 +138,16 @@ public class Main extends JavaPlugin {
 						if (invPlayer != null) {
 							p.openInventory(invPlayer.getInventory());
 							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Showing player inventory for " + args[1] + ".");
+						}
+					}
+					else if (args[0].equalsIgnoreCase("togglephysics")) {
+						if (enablePhysics) {
+							enablePhysics = false;
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Physics disabled.");
+						}
+						else {
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Physics enabled.");
+							enablePhysics = true;
 						}
 					}
 				}
