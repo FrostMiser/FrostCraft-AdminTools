@@ -6,7 +6,6 @@ import java.util.UUID;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
-
 public class Main extends JavaPlugin {
 	public static boolean enablePhysics = true;
 	public static List<UUID> vanishList = new ArrayList<UUID>(); //List of vanished players
