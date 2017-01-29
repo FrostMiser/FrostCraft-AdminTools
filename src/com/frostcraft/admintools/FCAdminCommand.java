@@ -182,8 +182,16 @@ public class FCAdminCommand implements CommandExecutor {
 							Main.vanishList.add(p.getUniqueId());
 							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "You have vanished!");
 						}
-					}		
-					
+					}
+					else if (args[0].equalsIgnoreCase("addpoint")) 	{
+						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
+					}
+					else if (args[0].equalsIgnoreCase("removepoint")) 	{
+						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
+					}					
+					else if (args[0].equalsIgnoreCase("listpoints")) 	{
+						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
+					}					
 				}
 			}
 		}
