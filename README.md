@@ -23,6 +23,5 @@ Commands
 * /listpoints - Lists all of your waypoints
 * /point [Name] - Teleports you to a saved waypoint
 
-
 Permissions
 =================
