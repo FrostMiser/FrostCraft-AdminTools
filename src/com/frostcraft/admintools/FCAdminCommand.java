@@ -203,7 +203,6 @@ public class FCAdminCommand implements CommandExecutor {
 						else {
 							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Invalid parameter, use /time [day|night].");
 						}
-
 					}										
 					else if (args[0].equalsIgnoreCase("mute")) 	{
 						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
