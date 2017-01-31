@@ -3,6 +3,7 @@ package com.frostcraft.admintools;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
+import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -183,15 +184,20 @@ public class FCAdminCommand implements CommandExecutor {
 							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "You have vanished!");
 						}
 					}
+					else if (args[0].equalsIgnoreCase("time")) 	{
+						if (args[1].equalsIgnoreCase("day")) {
+							for (World world : Bukkit.getServer().getWorlds()) {
+								world.setTime(1000);
+							}
+						}
+						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
+					}										
 					else if (args[0].equalsIgnoreCase("mute")) 	{
 						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
 					}								
 					else if (args[0].equalsIgnoreCase("unmute")) 	{
 						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
 					}								
-					else if (args[0].equalsIgnoreCase("time")) 	{
-						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
-					}					
 					else if (args[0].equalsIgnoreCase("kickwarn")) 	{
 						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
 					}
