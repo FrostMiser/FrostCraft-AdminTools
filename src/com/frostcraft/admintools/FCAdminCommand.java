@@ -189,13 +189,18 @@ public class FCAdminCommand implements CommandExecutor {
 							for (World world : Bukkit.getServer().getWorlds()) {
 								world.setTime(1000);
 							}
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Time set to day in all worlds.");
 						}
 						else if (args[1].equalsIgnoreCase("night")) {
 							for (World world : Bukkit.getServer().getWorlds()) {
 								world.setTime(13000);
 							}
-						}						
-						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Time set to night in all worlds.");							
+						}
+						else {
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Invalid parameter, use /time [day|night].");
+						}
+
 					}										
 					else if (args[0].equalsIgnoreCase("mute")) 	{
 						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
