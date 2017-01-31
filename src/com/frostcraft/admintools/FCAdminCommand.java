@@ -185,6 +185,9 @@ public class FCAdminCommand implements CommandExecutor {
 						}
 					}
 					else if (args[0].equalsIgnoreCase("time")) 	{
+						if (args.length < 2) {
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Invalid parameter, use /time [day|night].");
+						}
 						if (args[1].equalsIgnoreCase("day")) {
 							for (World world : Bukkit.getServer().getWorlds()) {
 								world.setTime(1000);
