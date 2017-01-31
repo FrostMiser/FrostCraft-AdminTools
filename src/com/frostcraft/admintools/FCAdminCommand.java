@@ -173,7 +173,6 @@ public class FCAdminCommand implements CommandExecutor {
 							}
 							Main.vanishList.remove(p.getUniqueId());
 							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "You are no longer vanished.");
-
 						}
 						else
 						{
@@ -184,15 +183,30 @@ public class FCAdminCommand implements CommandExecutor {
 							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "You have vanished!");
 						}
 					}
+					else if (args[0].equalsIgnoreCase("mute")) 	{
+						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
+					}								
+					else if (args[0].equalsIgnoreCase("unmute")) 	{
+						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
+					}								
+					else if (args[0].equalsIgnoreCase("time")) 	{
+						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
+					}					
+					else if (args[0].equalsIgnoreCase("kickwarn")) 	{
+						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
+					}
+					else if (args[0].equalsIgnoreCase("tempban")) 	{
+						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
+					}					
 					else if (args[0].equalsIgnoreCase("addpoint")) 	{
 						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
 					}
 					else if (args[0].equalsIgnoreCase("removepoint")) 	{
 						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
-					}					
+					}		
 					else if (args[0].equalsIgnoreCase("listpoints")) 	{
 						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
-					}					
+					}
 				}
 			}
 		}
