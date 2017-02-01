@@ -205,6 +205,10 @@ public class FCAdminCommand implements CommandExecutor {
 						}
 					}										
 					else if (args[0].equalsIgnoreCase("mute")) 	{
+						if (args.length < 2) {
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Invalid parameter, use /mute [player].");
+						}
+						
 						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
 					}								
 					else if (args[0].equalsIgnoreCase("unmute")) 	{
