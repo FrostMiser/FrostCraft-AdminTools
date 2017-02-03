@@ -9,6 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class Main extends JavaPlugin {
 	public static boolean enablePhysics = true;
 	public static List<UUID> vanishList = new ArrayList<UUID>(); //List of vanished players
+	public static List<UUID> muteList = new ArrayList<UUID>(); //List of muted players
 
 	//Plugin enable
 	public void onEnable() {

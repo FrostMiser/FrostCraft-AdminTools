@@ -219,7 +219,8 @@ public class FCAdminCommand implements CommandExecutor {
 						}
 						
 						if (mutePlayer !=null) {
-							
+							Main.muteList.add(mutePlayer.getUniqueId());
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + mutePlayer.getName() + " has been muted.");
 						}
 					}								
 					else if (args[0].equalsIgnoreCase("unmute")) 	{
