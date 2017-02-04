@@ -224,7 +224,23 @@ public class FCAdminCommand implements CommandExecutor {
 						}
 					}								
 					else if (args[0].equalsIgnoreCase("unmute")) 	{
-						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
+						if (args.length < 2) {
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Invalid parameter, use /unmute [player].");
+						}
+						
+						Player mutePlayer = null;
+						
+						try {
+							mutePlayer = Bukkit.getServer().getPlayer(args[1]);
+						}
+						catch (Exception e) {
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Player not found.");
+						}
+						
+						if (mutePlayer !=null) {
+							Main.muteList.remove(mutePlayer.getUniqueId());
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + mutePlayer.getName() + " is no longer muted.");
+						}
 					}								
 					else if (args[0].equalsIgnoreCase("kickwarn")) 	{
 						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
