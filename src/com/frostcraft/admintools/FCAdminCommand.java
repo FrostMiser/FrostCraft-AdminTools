@@ -8,8 +8,14 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 
 public class FCAdminCommand implements CommandExecutor {
+	Plugin plugin;
+	
+	public FCAdminCommand (Plugin frostWolfPlugin) {
+		plugin = frostWolfPlugin;
+	}
 	
 	@SuppressWarnings("deprecation")
 	@Override

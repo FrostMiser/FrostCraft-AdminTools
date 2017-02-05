@@ -16,7 +16,7 @@ public class Main extends JavaPlugin {
 		getServer().getPluginManager().registerEvents(new BlockListener(),this);
 		getServer().getPluginManager().registerEvents(new PlayerListener(),this);
 		
-		getCommand("fcadmin").setExecutor(new FCAdminCommand());
+		getCommand("fcadmin").setExecutor(new FCAdminCommand(this));
 		
 		this.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] Plugin enabled.");
 	}
