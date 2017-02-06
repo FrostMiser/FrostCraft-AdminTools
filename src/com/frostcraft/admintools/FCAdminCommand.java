@@ -17,7 +17,6 @@ public class FCAdminCommand implements CommandExecutor {
 		plugin = frostWolfPlugin;
 	}
 	
-	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) 
 	{
@@ -94,7 +93,7 @@ public class FCAdminCommand implements CommandExecutor {
 								{
 									message = message + " " + args[i]; 
 								}
-								banPlayer.setBanned(true);
+								Bukkit.getBanList(Type.NAME).addBan(banPlayer.getName(), message, null, p.getName());
 								banPlayer.kickPlayer("Banned: " + message);
 								Bukkit.getServer().broadcastMessage(ChatColor.AQUA + "[FrostCraft Admin] " + ChatColor.GREEN + banPlayer.getName() + ChatColor.GREEN + " has been banned for: " + ChatColor.ITALIC + message);			
 							}
