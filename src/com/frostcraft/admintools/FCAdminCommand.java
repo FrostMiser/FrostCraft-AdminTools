@@ -2,11 +2,15 @@ package com.frostcraft.admintools;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Chunk;
 import org.bukkit.GameMode;
 import org.bukkit.World;
+import org.bukkit.BanList.Type;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
@@ -43,6 +47,7 @@ public class FCAdminCommand implements CommandExecutor {
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin tempban [P]" + ChatColor.GREEN + " - Temp ban a player.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin mute [P]" + ChatColor.GREEN + " - Mute a player.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin unmute [P]" + ChatColor.GREEN + " - UnMute a player.");
+					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin clearlag[P]" + ChatColor.GREEN + " - Clear things that may be causing lag.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin vanish" + ChatColor.GREEN + " - Vanish.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin vanish [P]" + ChatColor.GREEN + " - Vanish only from a specific player.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin seeinv [P]" + ChatColor.GREEN + " - View a player inventory.");
@@ -246,7 +251,48 @@ public class FCAdminCommand implements CommandExecutor {
 							Main.muteList.remove(mutePlayer.getUniqueId());
 							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + mutePlayer.getName() + " is no longer muted.");
 						}
-					}								
+					}
+					//Clear out things that may be causing lag
+					else if (args[0].equalsIgnoreCase("clearlag")) {
+						for (Chunk c : p.getWorld().getLoadedChunks()) {
+					  		for (Entity en : c.getEntities()) {
+					  			if (en.getType().equals(EntityType.FIREBALL) ||
+					  				en.getType().equals(EntityType.WITHER_SKULL) ||
+					  				en.getType().equals(EntityType.CREEPER) ||
+					  				en.getType().equals(EntityType.ZOMBIE) ||
+					  				en.getType().equals(EntityType.SKELETON) ||
+					  				en.getType().equals(EntityType.BLAZE) ||
+					  				en.getType().equals(EntityType.DROPPED_ITEM) ||
+					  				en.getType().equals(EntityType.ENDERMAN) ||
+					  				en.getType().equals(EntityType.EXPERIENCE_ORB) ||
+					  				en.getType().equals(EntityType.MAGMA_CUBE) ||
+					  				en.getType().equals(EntityType.ARROW) ||
+					  				en.getType().equals(EntityType.BAT) ||
+					  				en.getType().equals(EntityType.EGG) ||
+					  				en.getType().equals(EntityType.FIREWORK) ||
+					  				en.getType().equals(EntityType.ENDER_SIGNAL) ||
+					  				en.getType().equals(EntityType.GHAST) ||
+					  				en.getType().equals(EntityType.GIANT) ||
+					  				en.getType().equals(EntityType.PIG_ZOMBIE) ||
+					  				en.getType().equals(EntityType.SILVERFISH) ||
+					  				en.getType().equals(EntityType.WITCH) ||
+					  				en.getType().equals(EntityType.WITHER) ||
+					  				en.getType().equals(EntityType.ENDER_DRAGON) ||
+					  				en.getType().equals(EntityType.SKELETON) ||
+					  				en.getType().equals(EntityType.SLIME) ||
+					  				en.getType().equals(EntityType.SMALL_FIREBALL) ||
+					  				en.getType().equals(EntityType.SPIDER) ||
+					  				en.getType().equals(EntityType.SQUID) ||
+									en.getType().equals(EntityType.DRAGON_FIREBALL) ||
+									en.getType().equals(EntityType.BOAT) ||
+					  				en.getType().equals(EntityType.CAVE_SPIDER)
+					  				)
+					  			{
+					  				en.remove();
+					  			}
+					  		}
+						}
+					}
 					else if (args[0].equalsIgnoreCase("kickwarn")) 	{
 						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
 					}
