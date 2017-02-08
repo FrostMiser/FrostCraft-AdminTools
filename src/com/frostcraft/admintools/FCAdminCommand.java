@@ -12,6 +12,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
 public class FCAdminCommand implements CommandExecutor {
@@ -47,6 +48,7 @@ public class FCAdminCommand implements CommandExecutor {
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin tempban [P]" + ChatColor.GREEN + " - Temp ban a player.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin mute [P]" + ChatColor.GREEN + " - Mute a player.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin unmute [P]" + ChatColor.GREEN + " - UnMute a player.");
+					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin blockinfo" + ChatColor.GREEN + " - Get information about a block in hand.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin clearlag[P]" + ChatColor.GREEN + " - Clear things that may be causing lag.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin vanish" + ChatColor.GREEN + " - Vanish.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin vanish [P]" + ChatColor.GREEN + " - Vanish only from a specific player.");
@@ -293,6 +295,17 @@ public class FCAdminCommand implements CommandExecutor {
 					  		}
 						}
 					}
+					//Get useful information about a block in hand
+					else if (args[0].equalsIgnoreCase("blockinfo")) {
+						ItemStack item = p.getInventory().getItemInMainHand();
+						p.sendMessage("Durability: " + item.getDurability());
+						p.sendMessage("Amount: " + item.getAmount());
+						p.sendMessage("Max Stack Size: " + item.getMaxStackSize());
+						p.sendMessage("Type: " + item.getType().toString());
+						p.sendMessage("Data: " + item.getData().toString());
+						p.sendMessage("ID: " + item.getType().getId());
+						p.sendMessage("Enchantments: " + item.getEnchantments().toString());
+					}							
 					else if (args[0].equalsIgnoreCase("kickwarn")) 	{
 						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
 					}
