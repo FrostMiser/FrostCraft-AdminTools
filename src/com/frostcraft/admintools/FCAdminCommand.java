@@ -14,6 +14,8 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 public class FCAdminCommand implements CommandExecutor {
 	Plugin plugin;
@@ -49,6 +51,7 @@ public class FCAdminCommand implements CommandExecutor {
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin mute [P]" + ChatColor.GREEN + " - Mute a player.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin unmute [P]" + ChatColor.GREEN + " - UnMute a player.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin blockinfo" + ChatColor.GREEN + " - Get information about a block in hand.");
+					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin powerup" + ChatColor.GREEN + " - Power up with awesome effects.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin clearlag[P]" + ChatColor.GREEN + " - Clear things that may be causing lag.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin vanish" + ChatColor.GREEN + " - Vanish.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin vanish [P]" + ChatColor.GREEN + " - Vanish only from a specific player.");
@@ -305,7 +308,15 @@ public class FCAdminCommand implements CommandExecutor {
 						p.sendMessage("Data: " + item.getData().toString());
 						p.sendMessage("ID: " + item.getType().getId());
 						p.sendMessage("Enchantments: " + item.getEnchantments().toString());
-					}							
+					}	
+					else if (args[0].equalsIgnoreCase("powerup")) {
+						p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED,10000,10));
+						p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION,10000,10));
+						p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST,10000,10));
+						p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE,10000,10));
+						p.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE,10000,10));
+						p.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING,10000,10));
+					}					
 					else if (args[0].equalsIgnoreCase("kickwarn")) 	{
 						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
 					}
