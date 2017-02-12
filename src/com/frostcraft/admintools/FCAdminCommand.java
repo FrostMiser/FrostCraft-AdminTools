@@ -267,6 +267,8 @@ public class FCAdminCommand implements CommandExecutor {
 					  				en.getType().equals(EntityType.ZOMBIE) ||
 					  				en.getType().equals(EntityType.SKELETON) ||
 					  				en.getType().equals(EntityType.BLAZE) ||
+					  				en.getType().equals(EntityType.SHULKER) ||
+					  				en.getType().equals(EntityType.SHULKER_BULLET) ||
 					  				en.getType().equals(EntityType.DROPPED_ITEM) ||
 					  				en.getType().equals(EntityType.ENDERMAN) ||
 					  				en.getType().equals(EntityType.EXPERIENCE_ORB) ||
