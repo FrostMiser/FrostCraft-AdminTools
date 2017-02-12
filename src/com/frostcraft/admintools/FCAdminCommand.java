@@ -24,6 +24,7 @@ public class FCAdminCommand implements CommandExecutor {
 		plugin = frostWolfPlugin;
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) 
 	{
@@ -57,14 +58,19 @@ public class FCAdminCommand implements CommandExecutor {
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin powerup" + ChatColor.GREEN + " - Power up with awesome effects.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin seeinv [P]" + ChatColor.GREEN + " - View a player inventory.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin seeinvender [P]" + ChatColor.GREEN + " - View a player ender inventory.");
+					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin setspeed [P]" + ChatColor.GREEN + " - Set speed of a player.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin tempban [P]" + ChatColor.GREEN + " - Temp ban a player.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin time" + ChatColor.GREEN + " - Set the world time for all worlds on the server.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin togglephysics" + ChatColor.GREEN + " - Turn physics on or off.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin tpl [P]" + ChatColor.GREEN + " - Teleport to a player.");
+					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin tpworld" + ChatColor.GREEN + " - Teleport to a different world.");
+					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin createworld" + ChatColor.GREEN + " - Create a new world.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin removepoint [Name]" + ChatColor.GREEN + " - Remove an admin waypoint.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin unmute [P]" + ChatColor.GREEN + " - UnMute a player.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin vanish" + ChatColor.GREEN + " - Vanish.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin vanish [P]" + ChatColor.GREEN + " - Vanish only from a specific player.");
+					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin broadcast" + ChatColor.GREEN + " - Broadcast a message.");
+					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin joinmessage" + ChatColor.GREEN + " - Set message players see when they join.");
 				}
 				else {
 					if (args[0].equalsIgnoreCase("kick")) {
