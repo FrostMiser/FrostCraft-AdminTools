@@ -58,7 +58,7 @@ public class FCAdminCommand implements CommandExecutor {
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin powerup" + ChatColor.GREEN + " - Power up with awesome effects.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin seeinv [P]" + ChatColor.GREEN + " - View a player inventory.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin seeinvender [P]" + ChatColor.GREEN + " - View a player ender inventory.");
-					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin setspeed [P]" + ChatColor.GREEN + " - Set speed of a player.");
+					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin flyspeed [P]" + ChatColor.GREEN + " - Set fly speed of a player.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin tempban [P]" + ChatColor.GREEN + " - Temp ban a player.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin time" + ChatColor.GREEN + " - Set the world time for all worlds on the server.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin togglephysics" + ChatColor.GREEN + " - Turn physics on or off.");
