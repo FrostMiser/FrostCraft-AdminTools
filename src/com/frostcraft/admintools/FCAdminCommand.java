@@ -333,6 +333,10 @@ public class FCAdminCommand implements CommandExecutor {
 					}					
 					else if (args[0].equalsIgnoreCase("addpoint")) 	{
 						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
+					else if (args[0].equalsIgnoreCase("flyspeed")) {
+						Player target = Bukkit.getServer().getPlayer(args[1]);
+						target.setFlySpeed(Float.parseFloat(args[2]));
+						return true;
 					}
 					else if (args[0].equalsIgnoreCase("removepoint")) 	{
 						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
