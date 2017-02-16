@@ -5,6 +5,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Chunk;
 import org.bukkit.GameMode;
 import org.bukkit.World;
+import org.bukkit.WorldCreator;
 import org.bukkit.BanList.Type;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -333,6 +334,28 @@ public class FCAdminCommand implements CommandExecutor {
 					}					
 					else if (args[0].equalsIgnoreCase("addpoint")) 	{
 						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
+					else if (args[0].equalsIgnoreCase("tpworld")) 	{
+						World world = Bukkit.getServer().getWorld(args[1]);
+
+						if (world == null) { 
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools]" + ChatColor.GREEN + "World not found.");
+						}
+						else {
+							Bukkit.getServer().getPlayer(sender.getName()).teleport(world.getSpawnLocation());
+							p.sendMessage(ChatColor.RED + "[FrostCraft-AdminTools] Teleported to the world requested.");
+						}
+					}
+					else if (args[0].equalsIgnoreCase("createworld")) 	{
+						World world = Bukkit.getServer().getWorld(args[1]);
+						if (world==null)
+						{
+							WorldCreator worldCreator = new WorldCreator(args[1]);
+							worldCreator.environment(World.Environment.NORMAL);
+							worldCreator.generateStructures(false);
+							world = worldCreator.createWorld();
+						}
+						p.sendMessage(ChatColor.RED + "[FrostCraft-AdminTools] World created.");
+					}
 					else if (args[0].equalsIgnoreCase("flyspeed")) {
 						Player target = Bukkit.getServer().getPlayer(args[1]);
 						target.setFlySpeed(Float.parseFloat(args[2]));
