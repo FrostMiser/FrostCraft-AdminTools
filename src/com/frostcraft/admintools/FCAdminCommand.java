@@ -1,9 +1,14 @@
 package com.frostcraft.admintools;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Chunk;
 import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.WorldCreator;
 import org.bukkit.BanList.Type;
@@ -77,7 +82,6 @@ public class FCAdminCommand implements CommandExecutor {
 					if (args[0].equalsIgnoreCase("kick")) {
 						if (args.length < 3) {
 							Bukkit.getServer().broadcastMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Invalid command format. Use /fcadmin kick [P] [Msg]");
-							
 						}
 						else {
 							try {
@@ -99,7 +103,6 @@ public class FCAdminCommand implements CommandExecutor {
 					else if (args[0].equalsIgnoreCase("ban")) {
 						if (args.length < 3) {
 							Bukkit.getServer().broadcastMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Invalid command format. Use /fcadmin ban [P] [Msg]");
-							
 						}
 						else {
 							try {
@@ -330,10 +333,54 @@ public class FCAdminCommand implements CommandExecutor {
 						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
 					}
 					else if (args[0].equalsIgnoreCase("tempban")) 	{
-						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
-					}					
-					else if (args[0].equalsIgnoreCase("addpoint")) 	{
-						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
+						if (args.length < 4) {
+							Bukkit.getServer().broadcastMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Invalid command format. Use /fcadmin ban [P] [Days] [Reason]");
+						}
+						else {
+							Player banPlayer = null;
+							try {
+								banPlayer = Bukkit.getServer().getPlayer(args[1]);
+							}
+							catch (Exception e) {
+								p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Player " + args[1] + " not found, or no player specified.");
+							}
+							
+							if (banPlayer !=null) {
+								int days = 0;
+								try {
+									days = Integer.parseInt(args[2]);	
+								}
+								catch (Exception e) {
+									days = 0;
+								}
+
+								if (days > 0 && days < 1000) {
+									Calendar calendar = Calendar.getInstance();
+									calendar.setTime(new Date());
+									calendar.add(Calendar.DATE, days);
+									
+									SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+											
+									String reason = ChatColor.RED + "Temp banned for " + args[3];
+									for (int i=4;i<args.length;i++)
+									{
+										reason = reason + " " + args[i]; 
+									}
+									
+									reason = reason + " until " + sdf.format(calendar.getTime());
+									
+									Bukkit.getBanList(Type.NAME).addBan(banPlayer.getName(), reason, calendar.getTime(), p.getName());
+									banPlayer.kickPlayer("Banned: " + reason);
+									Bukkit.getServer().broadcastMessage(ChatColor.AQUA + "[FrostCraft Admin] " + ChatColor.GREEN + banPlayer.getName() + ChatColor.GREEN + " has been temporarily banned until " + sdf.format(calendar.getTime()) + " for: " + ChatColor.ITALIC + reason);				
+								}
+								else {
+									p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Invalid number of days. Days must be between 1 and 1,000.");
+								}
+							}
+
+						
+						}
+					}
 					else if (args[0].equalsIgnoreCase("tpworld")) 	{
 						World world = Bukkit.getServer().getWorld(args[1]);
 
@@ -361,6 +408,22 @@ public class FCAdminCommand implements CommandExecutor {
 						target.setFlySpeed(Float.parseFloat(args[2]));
 						return true;
 					}
+					else if (args[0].equalsIgnoreCase("addpoint")) 	{
+						
+						if (args.length < 2) {
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools]" + ChatColor.GREEN + "Invalid use of command, use /addpoint [name]");
+						}
+						
+						Location location = p.getLocation();
+						String pointName = args[1];
+						
+						plugin.getConfig().set("point." + pointName + ".x",location.getX());
+						plugin.getConfig().set("point." + pointName + ".y",location.getY());
+						plugin.getConfig().set("point." + pointName + ".z",location.getZ());
+						
+						plugin.saveConfig();
+						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Teleported to " + pointName + " point.");
+					}  
 					else if (args[0].equalsIgnoreCase("removepoint")) 	{
 						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
 					}		
