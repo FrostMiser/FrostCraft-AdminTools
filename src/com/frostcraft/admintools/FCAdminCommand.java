@@ -408,6 +408,26 @@ public class FCAdminCommand implements CommandExecutor {
 						target.setFlySpeed(Float.parseFloat(args[2]));
 						return true;
 					}
+					else if (args[0].equalsIgnoreCase("point")) 	{
+						
+						if (args.length < 2) {
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools]" + ChatColor.GREEN + "Invalid use of command, use /point [name]");
+						}
+						
+						String pointName = args[1];
+						
+						String worldName = plugin.getConfig().getString("point." + pointName + ".world");
+						double x = Double.parseDouble(plugin.getConfig().getString("point." + pointName + ".x"));
+						double y = Double.parseDouble(plugin.getConfig().getString("point." + pointName + ".y"));
+						double z = Double.parseDouble(plugin.getConfig().getString("point." + pointName + ".z"));
+					
+						World world = Bukkit.getWorld(worldName);
+						Location location = new Location(world, x, y, z);						
+						
+						p.teleport(location);
+						
+						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Teleported to " + pointName + " point.");
+					}  					
 					else if (args[0].equalsIgnoreCase("addpoint")) 	{
 						
 						if (args.length < 2) {
