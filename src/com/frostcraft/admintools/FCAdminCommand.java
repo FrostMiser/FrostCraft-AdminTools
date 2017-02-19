@@ -442,7 +442,7 @@ public class FCAdminCommand implements CommandExecutor {
 						plugin.getConfig().set("point." + pointName + ".z",location.getZ());
 						
 						plugin.saveConfig();
-						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Teleported to " + pointName + " point.");
+						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Added new point, " + pointName + ".");
 					}  
 					else if (args[0].equalsIgnoreCase("removepoint")) 	{
 							
