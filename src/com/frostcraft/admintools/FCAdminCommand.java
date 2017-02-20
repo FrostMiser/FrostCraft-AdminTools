@@ -460,6 +460,14 @@ public class FCAdminCommand implements CommandExecutor {
 					else if (args[0].equalsIgnoreCase("listpoints")) 	{
 						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Command not available.");
 					}
+					else if (args[0].equalsIgnoreCase("broadcast")) {
+						String message = ChatColor.RED + args[1];
+						for (int i=2;i<args.length;i++) {
+							message = message + " " + args[i]; 
+						}
+						Bukkit.getServer().broadcastMessage(ChatColor.translateAlternateColorCodes('&', message));
+						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Broadcast created.");
+					}
 				}
 			}
 		}
