@@ -9,16 +9,19 @@ import org.bukkit.ChatColor;
 import org.bukkit.Chunk;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.WorldCreator;
 import org.bukkit.BanList.Type;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -51,6 +54,7 @@ public class FCAdminCommand implements CommandExecutor {
 				if (args.length <= 0) {
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "FrostCraft-AdminTools Commands");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "==============================");
+					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin adminsword" + ChatColor.GREEN + " - Summon a powerful admin sword.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin addpoint [Name]" + ChatColor.GREEN + " - Add an admin waypoint.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin ban [P]" + ChatColor.GREEN + " - Ban a player.");
 					p.sendMessage(ChatColor.LIGHT_PURPLE + "fcadmin blockinfo" + ChatColor.GREEN + " - Get information about a block in hand.");
@@ -468,6 +472,19 @@ public class FCAdminCommand implements CommandExecutor {
 						Bukkit.getServer().broadcastMessage(ChatColor.translateAlternateColorCodes('&', message));
 						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Broadcast created.");
 					}
+					else if (args[0].equalsIgnoreCase("adminsword")) {
+						ItemStack itemStack = new ItemStack(Material.DIAMOND_SWORD,1);
+						itemStack.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 10);
+						itemStack.addUnsafeEnchantment(Enchantment.DAMAGE_ARTHROPODS, 10);
+						itemStack.addUnsafeEnchantment(Enchantment.DAMAGE_UNDEAD, 10);
+						itemStack.addUnsafeEnchantment(Enchantment.DURABILITY, 10);
+						itemStack.addUnsafeEnchantment(Enchantment.FIRE_ASPECT, 10);
+						itemStack.addUnsafeEnchantment(Enchantment.KNOCKBACK, 1);
+						itemStack.addUnsafeEnchantment(Enchantment.SWEEPING_EDGE, 10);
+						itemStack.addUnsafeEnchantment(Enchantment.MENDING, 10);
+					
+						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Sword summoned.");
+					}					
 				}
 			}
 		}
