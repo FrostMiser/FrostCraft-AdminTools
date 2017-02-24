@@ -191,25 +191,37 @@ public class FCAdminCommand implements CommandExecutor {
 						}
 					}
 					else if (args[0].equalsIgnoreCase("vanish")) 	{
-						boolean isVanished = false;
-						
-						if (Main.vanishList.contains(p.getUniqueId())) {	isVanished = true; }
-								
-						if (isVanished)
-						{
-							for (Player pList: Bukkit.getServer().getOnlinePlayers()) {
-								pList.showPlayer(p);
+						if (args.length == 2) {
+							Player vanishFrom = Bukkit.getPlayer(args[1]);
+							if (vanishFrom != null) {
+								vanishFrom.hidePlayer(p);
+								p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools]" + ChatColor.GREEN + "You have vanished from " + vanishFrom.getName() + ".");
 							}
-							Main.vanishList.remove(p.getUniqueId());
-							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "You are no longer vanished.");
+							else {
+								p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools]" + ChatColor.GREEN + "Player not found.");
+							}
 						}
-						else
-						{
-							for (Player pList: Bukkit.getServer().getOnlinePlayers()) {
-								pList.hidePlayer(p);
+						else {						
+							boolean isVanished = false;
+							
+							if (Main.vanishList.contains(p.getUniqueId())) {	isVanished = true; }
+									
+							if (isVanished)
+							{
+								for (Player pList: Bukkit.getServer().getOnlinePlayers()) {
+									pList.showPlayer(p);
+								}
+								Main.vanishList.remove(p.getUniqueId());
+								p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "You are no longer vanished.");
 							}
-							Main.vanishList.add(p.getUniqueId());
-							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "You have vanished!");
+							else
+							{
+								for (Player pList: Bukkit.getServer().getOnlinePlayers()) {
+									pList.hidePlayer(p);
+								}
+								Main.vanishList.add(p.getUniqueId());
+								p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "You have vanished!");
+							}
 						}
 					}
 					else if (args[0].equalsIgnoreCase("time")) 	{
