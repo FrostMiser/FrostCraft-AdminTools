@@ -286,38 +286,38 @@ public class FCAdminCommand implements CommandExecutor {
 					else if (args[0].equalsIgnoreCase("clearlag")) {
 						for (Chunk c : p.getWorld().getLoadedChunks()) {
 					  		for (Entity en : c.getEntities()) {
-					  			if (en.getType().equals(EntityType.FIREBALL) ||
-					  				en.getType().equals(EntityType.WITHER_SKULL) ||
+					  			if (en.getType().equals(EntityType.ARROW) ||
+						  			en.getType().equals(EntityType.BAT) ||
+						  			en.getType().equals(EntityType.BLAZE) ||
+									en.getType().equals(EntityType.BOAT) ||
+					  				en.getType().equals(EntityType.CAVE_SPIDER) ||
 					  				en.getType().equals(EntityType.CREEPER) ||
-					  				en.getType().equals(EntityType.ZOMBIE) ||
-					  				en.getType().equals(EntityType.SKELETON) ||
-					  				en.getType().equals(EntityType.BLAZE) ||
-					  				en.getType().equals(EntityType.SHULKER) ||
-					  				en.getType().equals(EntityType.SHULKER_BULLET) ||
+									en.getType().equals(EntityType.DRAGON_FIREBALL) ||
 					  				en.getType().equals(EntityType.DROPPED_ITEM) ||
-					  				en.getType().equals(EntityType.ENDERMAN) ||
-					  				en.getType().equals(EntityType.EXPERIENCE_ORB) ||
-					  				en.getType().equals(EntityType.MAGMA_CUBE) ||
-					  				en.getType().equals(EntityType.ARROW) ||
-					  				en.getType().equals(EntityType.BAT) ||
-					  				en.getType().equals(EntityType.EGG) ||
-					  				en.getType().equals(EntityType.FIREWORK) ||
+					  				en.getType().equals(EntityType.ENDER_DRAGON) ||
 					  				en.getType().equals(EntityType.ENDER_SIGNAL) ||
+					  				en.getType().equals(EntityType.ENDERMAN) ||
+					  				en.getType().equals(EntityType.EGG) ||
+					  				en.getType().equals(EntityType.EXPERIENCE_ORB) ||
+					  				en.getType().equals(EntityType.FIREBALL) ||
+					  				en.getType().equals(EntityType.FIREWORK) ||
 					  				en.getType().equals(EntityType.GHAST) ||
 					  				en.getType().equals(EntityType.GIANT) ||
+					  				en.getType().equals(EntityType.MAGMA_CUBE) ||
 					  				en.getType().equals(EntityType.PIG_ZOMBIE) ||
+					  				en.getType().equals(EntityType.SHULKER) ||
+					  				en.getType().equals(EntityType.SHULKER_BULLET) ||
 					  				en.getType().equals(EntityType.SILVERFISH) ||
-					  				en.getType().equals(EntityType.WITCH) ||
-					  				en.getType().equals(EntityType.WITHER) ||
-					  				en.getType().equals(EntityType.ENDER_DRAGON) ||
-					  				en.getType().equals(EntityType.SKELETON) ||
 					  				en.getType().equals(EntityType.SLIME) ||
 					  				en.getType().equals(EntityType.SMALL_FIREBALL) ||
 					  				en.getType().equals(EntityType.SPIDER) ||
 					  				en.getType().equals(EntityType.SQUID) ||
-									en.getType().equals(EntityType.DRAGON_FIREBALL) ||
-									en.getType().equals(EntityType.BOAT) ||
-					  				en.getType().equals(EntityType.CAVE_SPIDER)
+					  				en.getType().equals(EntityType.SKELETON) ||
+					  				en.getType().equals(EntityType.WITCH) ||
+					  				en.getType().equals(EntityType.WITHER) || 
+					  				en.getType().equals(EntityType.WITHER_SKULL) ||
+					  				en.getType().equals(EntityType.ZOMBIE)
+					  				
 					  				)
 					  			{
 					  				en.remove();
