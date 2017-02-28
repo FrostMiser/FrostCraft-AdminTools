@@ -287,6 +287,7 @@ public class FCAdminCommand implements CommandExecutor {
 						for (Chunk c : p.getWorld().getLoadedChunks()) {
 					  		for (Entity en : c.getEntities()) {
 					  			if (en.getType().equals(EntityType.ARROW) ||
+					  				en.getType().equals(EntityType.SPECTRAL_ARROW) ||	
 						  			en.getType().equals(EntityType.BAT) ||
 						  			en.getType().equals(EntityType.BLAZE) ||
 									en.getType().equals(EntityType.BOAT) ||
