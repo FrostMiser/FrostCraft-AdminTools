@@ -304,6 +304,7 @@ public class FCAdminCommand implements CommandExecutor {
 					  				en.getType().equals(EntityType.FIREWORK) ||
 					  				en.getType().equals(EntityType.GHAST) ||
 					  				en.getType().equals(EntityType.GIANT) ||
+					  				en.getType().equals(EntityType.GUARDIAN) ||					  				
 					  				en.getType().equals(EntityType.MAGMA_CUBE) ||
 					  				en.getType().equals(EntityType.PIG_ZOMBIE) ||
 					  				en.getType().equals(EntityType.SHULKER) ||
