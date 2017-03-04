@@ -295,6 +295,7 @@ public class FCAdminCommand implements CommandExecutor {
 					  				en.getType().equals(EntityType.CREEPER) ||
 									en.getType().equals(EntityType.DRAGON_FIREBALL) ||
 					  				en.getType().equals(EntityType.DROPPED_ITEM) ||
+					  				en.getType().equals(EntityType.ELDER_GUARDIAN) ||
 					  				en.getType().equals(EntityType.ENDER_DRAGON) ||
 					  				en.getType().equals(EntityType.ENDER_SIGNAL) ||
 					  				en.getType().equals(EntityType.ENDERMAN) ||
