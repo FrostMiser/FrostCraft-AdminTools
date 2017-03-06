@@ -320,7 +320,6 @@ public class FCAdminCommand implements CommandExecutor {
 					  				en.getType().equals(EntityType.WITHER) || 
 					  				en.getType().equals(EntityType.WITHER_SKULL) ||
 					  				en.getType().equals(EntityType.ZOMBIE)
-					  				
 					  				)
 					  			{
 					  				en.remove();
