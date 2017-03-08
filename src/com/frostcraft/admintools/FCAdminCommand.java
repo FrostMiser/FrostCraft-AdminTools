@@ -347,15 +347,26 @@ public class FCAdminCommand implements CommandExecutor {
 						p.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING,10000,10));
 					}					
 					else if (args[0].equalsIgnoreCase("kickwarn")) 	{
-						Player kickPlayer = Bukkit.getServer().getPlayer(args[1]);
+						Player kickPlayer;
+						try {
+							kickPlayer = Bukkit.getServer().getPlayer(args[1]);
+						}
+						catch (Exception e) {
+							kickPlayer = null;
+						}
 						
-						long warnCount = plugin.getConfig().getLong("warning." + kickPlayer.getUniqueId()  + ".count") + 1; 
-						
-						
-						plugin.getConfig().set("warning." + kickPlayer.getUniqueId()  + ".count",warnCount);
-						kickPlayer.kickPlayer("Kicked with warning.");
-						
-						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Warning added.");
+						if (kickPlayer == null) {
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Player not found.");
+						}
+						else {
+							long warnCount = plugin.getConfig().getLong("warning." + kickPlayer.getUniqueId()  + ".count") + 1; 
+							
+							
+							plugin.getConfig().set("warning." + kickPlayer.getUniqueId()  + ".count",warnCount);
+							kickPlayer.kickPlayer("Kicked with warning.");
+							
+							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Warning added.");
+						}
 					}
 					else if (args[0].equalsIgnoreCase("tempban")) 	{
 						if (args.length < 4) {
