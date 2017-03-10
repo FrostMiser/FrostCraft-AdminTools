@@ -361,7 +361,6 @@ public class FCAdminCommand implements CommandExecutor {
 						else {
 							long warnCount = plugin.getConfig().getLong("warning." + kickPlayer.getUniqueId()  + ".count") + 1; 
 							
-							
 							plugin.getConfig().set("warning." + kickPlayer.getUniqueId()  + ".count",warnCount);
 							kickPlayer.kickPlayer("Kicked with warning.");
 							
