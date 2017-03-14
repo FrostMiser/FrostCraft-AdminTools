@@ -361,10 +361,17 @@ public class FCAdminCommand implements CommandExecutor {
 						else {
 							long warnCount = plugin.getConfig().getLong("warning." + kickPlayer.getUniqueId()  + ".count") + 1; 
 							
-							plugin.getConfig().set("warning." + kickPlayer.getUniqueId()  + ".count",warnCount);
-							kickPlayer.kickPlayer("Kicked with warning.");
-							
-							p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Warning added.");
+							if (warnCount > 2) {
+								Bukkit.getBanList(Type.NAME).addBan(kickPlayer.getName(), "Too Many Warnings.", null, p.getName());
+								kickPlayer.kickPlayer("Banned: Too Many Warnings.");
+							}
+							else {
+								plugin.getConfig().set("warning." + kickPlayer.getUniqueId()  + ".count",warnCount);
+								kickPlayer.kickPlayer("Kicked with warning.");
+								
+								p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Warning added.");								
+							}
+
 						}
 					}
 					else if (args[0].equalsIgnoreCase("tempban")) 	{
