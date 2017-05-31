@@ -4,7 +4,7 @@ This is a Minecraft Bukkit plugin which provides a set of administrative tools d
 
 Commands
 =================
-* /auth - Mechanism for providing an authorization code to use the plugin
+* (Not Implemented) /auth - Mechanism for providing an authorization code to use the plugin
 * /kick [player] - Kicks a player but does not add a warning to their account
 * /kickwarn [Player] - Kicks a player and adds a warning to their account
 * /ban [Player] - Bans a player from the server
