@@ -28,8 +28,8 @@ import org.bukkit.potion.PotionEffectType;
 public class FCAdminCommand implements CommandExecutor {
 	Plugin plugin;
 	
-	public FCAdminCommand (Plugin frostWolfPlugin) {
-		plugin = frostWolfPlugin;
+	public FCAdminCommand (Plugin fcAdminPlugin) {
+		plugin = fcAdminPlugin;
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -96,7 +96,7 @@ public class FCAdminCommand implements CommandExecutor {
 									message = message + " " + args[i]; 
 								}
 								kickPlayer.kickPlayer("Kicked: " + message);
-								Bukkit.getServer().broadcastMessage(ChatColor.AQUA + "[FrostCraft Admin] " + ChatColor.GREEN + kickPlayer.getName() + ChatColor.GREEN + " has been kicked for: " + ChatColor.ITALIC + message);			
+								Bukkit.getServer().broadcastMessage(ChatColor.AQUA + "[FrostCraft AdminTools] " + ChatColor.GREEN + kickPlayer.getName() + ChatColor.GREEN + " has been kicked for: " + ChatColor.ITALIC + message);			
 							}
 							catch (Exception e) {
 								p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Player " + args[1] + " not found, or no player specified." + e.toString());
@@ -118,7 +118,7 @@ public class FCAdminCommand implements CommandExecutor {
 								}
 								Bukkit.getBanList(Type.NAME).addBan(banPlayer.getName(), message, null, p.getName());
 								banPlayer.kickPlayer("Banned: " + message);
-								Bukkit.getServer().broadcastMessage(ChatColor.AQUA + "[FrostCraft Admin] " + ChatColor.GREEN + banPlayer.getName() + ChatColor.GREEN + " has been banned for: " + ChatColor.ITALIC + message);			
+								Bukkit.getServer().broadcastMessage(ChatColor.AQUA + "[FrostCraft AdminTools] " + ChatColor.GREEN + banPlayer.getName() + ChatColor.GREEN + " has been banned for: " + ChatColor.ITALIC + message);			
 							}
 							catch (Exception e) {
 								p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Player " + args[1] + " not found, or no player specified.");
