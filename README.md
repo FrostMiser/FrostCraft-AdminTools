@@ -4,7 +4,6 @@ This is a Minecraft Bukkit plugin which provides a set of administrative tools d
 
 Commands
 =================
-* (Not Implemented) /auth - Mechanism for providing an authorization code to use the plugin
 * /addpoint [Name] - Adds a waypoint point that you can teleport back to later
 * /ban [Player] - Bans a player from the server
 * /gm [Optional Player] - Change gamemode of self or player (if specified).
@@ -22,6 +21,8 @@ Commands
 * /unmute [Player] - Unmutes a player
 * /vanish - Hides your name from tab and makes you invisible to other players.
 * /vanishfrom [Player] - Hides your name from tab and makes you invisible only to a specific player.
+
+* (Not Implemented) /auth - Mechanism for providing an authorization code to use the plugin
 
 Permissions
 =================
