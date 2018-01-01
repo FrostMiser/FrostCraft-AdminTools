@@ -25,4 +25,19 @@ Commands
 
 Permissions
 =================
-* fcadmin.admin Permission to use the /fcadmin command
+* fcadmin.admin Permission to use the /fcadmin command. Players must have this permission to use any of the fcadmin subcommands.
+* (Not Implemented) fcadmin.[subcommand] Permission to use /fcadmin [subcommand]. You must set both the main fcadmin permission and /fcadmin [subcommand] permission for a player to have access to a specific subcommand (unless they are OP).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
