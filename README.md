@@ -25,3 +25,4 @@ Commands
 
 Permissions
 =================
+* fcadmin.admin Permission to use the /fcadmin command
