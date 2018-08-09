@@ -8,8 +8,14 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 public class PlayerListener implements Listener {
+
+    private Main plugin;
+
+    PlayerListener(Main plugin) { this.plugin = plugin; }
+
 	/********************************************************************************
 	 * PLAYER JOIN EVENT
 	 ********************************************************************************/
@@ -18,7 +24,7 @@ public class PlayerListener implements Listener {
 		// Hide vanished players
 		Player p = event.getPlayer();
 		for (UUID vanishUUID : Main.vanishList) {
-			p.hidePlayer(Bukkit.getServer().getPlayer(vanishUUID));
+			p.hidePlayer(plugin, Bukkit.getServer().getPlayer(vanishUUID));
 		}
 	}
 
@@ -31,5 +37,17 @@ public class PlayerListener implements Listener {
 		if (Main.muteList.contains(event.getPlayer().getUniqueId())) {
 			event.setCancelled(true); //mute player
 		}
-	}	
+	}
+
+  /********************************************************************************
+   * PLAYER QUIT EVENT
+   ********************************************************************************/
+  @EventHandler
+  public void onPlayerQuit(PlayerQuitEvent event) {
+      Player p;
+
+      p = event.getPlayer();
+
+      Main.verifiedList.remove(p.getUniqueId());
+  }
 }
