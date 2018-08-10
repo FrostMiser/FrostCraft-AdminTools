@@ -2,6 +2,14 @@ FrostCraft AdminTools
 =================
 This is a Minecraft Bukkit plugin which provides a set of administrative tools designed for use on FrostCraft.com servers.
 
+Building
+=================
+Building uses maven, if you do not have maven, please install it.
+
+To build the project go into the root folder and run
+
+`mvn clean package -f pom.xml`
+
 Commands
 =================
 * /addpoint [Name] - Adds a waypoint point that you can teleport back to later
