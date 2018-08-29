@@ -527,7 +527,7 @@ public class FCAdminCommand implements CommandExecutor {
 						p.updateInventory();
 					}
 					catch (Exception e) {
-						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Could not summon sword.")
+						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Could not summon sword.");
 					}
 
 					p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Sword summoned.");
