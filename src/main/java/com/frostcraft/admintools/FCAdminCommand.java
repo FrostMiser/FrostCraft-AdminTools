@@ -521,7 +521,15 @@ public class FCAdminCommand implements CommandExecutor {
 					itemStack.addUnsafeEnchantment(Enchantment.KNOCKBACK, 1);
 					itemStack.addUnsafeEnchantment(Enchantment.SWEEPING_EDGE, 10);
 					itemStack.addUnsafeEnchantment(Enchantment.MENDING, 10);
-				
+					
+					try {
+						p.getInventory().addItem(itemStack);
+						p.updateInventory();
+					}
+					catch (Exception e) {
+						p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Could not summon sword.")
+					}
+
 					p.sendMessage(ChatColor.AQUA + "[FrostCraft-AdminTools] " + ChatColor.GREEN + "Sword summoned.");
 				}					
 			}
