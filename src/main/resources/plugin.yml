@@ -4,6 +4,7 @@ main: com.frostcraft.admintools.Main
 prefix: Frostcraft-AdminTools 
 description: Admin tools for FrostCraft
 website: frostcraft.com
+api-version: 1.13
 commands:
   fcadmin:
     description: FrostCraft AdminTools command
