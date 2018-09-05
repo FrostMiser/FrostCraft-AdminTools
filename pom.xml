@@ -49,6 +49,7 @@
             <resource>
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
+                 <targetPath>${basedir}</targetPath>
             </resource>
         </resources>
     </build>
