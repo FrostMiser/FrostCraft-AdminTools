@@ -22,22 +22,9 @@ Commands
 * /vanish - Hides your name from tab and makes you invisible to other players.
 * /vanishfrom [Player] - Hides your name from tab and makes you invisible only to a specific player.
 
-* (Not Implemented) /auth - Mechanism for providing an authorization code to use the plugin
-
 Permissions
 =================
 * fcadmin.admin Permission to use the /fcadmin command. Players must have this permission to use any of the fcadmin subcommands.
-
-* (Not Implemented) fcadmin.[subcommand] Permission to use /fcadmin [subcommand]. You must set both the main /fcadmin permission and /fcadmin [subcommand] permission for a player to have access to a specific subcommand (unless they are OP).
-
-
-
-
-
-
-
-
-
 
 
 
